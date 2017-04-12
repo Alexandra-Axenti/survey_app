@@ -1,0 +1,24 @@
+<h1>SURVEY DESIGNER PAGE</h1>
+
+<h1>Welcome to the Survey App</h1>
+
+<% if @surveys.any?() %>
+
+<h3>Here are the surveys:</h3>
+  <% @surveys.each() do |survey|%>
+  <li><a href="/surveys/<%= survey.id() %>"><%= survey.title() %></a></li>
+  <% end %>
+
+<% else %>
+
+<h3>There are no surveys</h3>
+
+<% end %>
+
+<h3>Create a new survey:</h3>
+
+<form action="/surveys" method="post">
+  <label for="title">Survey Title: </label>
+  <input type="text" name="title" id="title">
+  <button type="submit"> Add the survey</button>
+</form>
